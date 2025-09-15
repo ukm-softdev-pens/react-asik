@@ -1,0 +1,19 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&display=swap');
+
+.button {
+  border-radius: 10px;
+  width: 20%;
+  background-color:rgb(210, 187, 214);
+  color:rgb(65, 63, 63);
+  margin: 5px;
+}
+
+.fontzahrin {
+  font-family: "Bitcount Grid Double", system-ui;
+  font-weight: 450;
+}
+
+.imagezahrin {
+  margin: 5px;
+}
