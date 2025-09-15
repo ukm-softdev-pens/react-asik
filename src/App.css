@@ -1,0 +1,77 @@
+.text-center {
+  text-align: center;
+}
+
+.screen-center {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.font-bold { font-weight: 500; }
+.size-big { font-size: 48px; }
+
+.gradient-normal-text {
+  background: linear-gradient(30deg, #6a6a6a, #1b1b1b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Wrapper sets up variables and stacking */
+.gradient-hover-text-wrapper {
+  position: relative;
+  display: inline-block;
+  --x: -100rem;
+  --y: -100rem;
+  --opacity: 0;
+  --spot-size: 18rem;
+}
+
+/* Base layer already defined (static). */
+.base-layer {
+  position: relative;
+  z-index: 0;
+}
+
+/* Overlay gradient to be revealed by mask */
+.gradient-hover-text.overlay-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    45deg,
+    hsl(0 100% 55%),
+    hsl(45 100% 55%),
+    hsl(90 100% 55%),
+    hsl(180 100% 55%),
+    hsl(240 100% 60%),
+    hsl(300 100% 60%),
+    hsl(360 100% 55%)
+  );
+  background-size: 200% 200%;
+  animation: shift 6s linear infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  opacity: var(--opacity);
+  transition: opacity 0.35s ease;
+  /* Mask creates circular reveal following cursor */
+  -webkit-mask: radial-gradient(var(--spot-size) var(--spot-size) at var(--x) var(--y), #000 8%, transparent 65%);
+  mask: radial-gradient(var(--spot-size) var(--spot-size) at var(--x) var(--y), #000 8%, transparent 65%);
+  will-change: transform, mask;
+}
+
+@keyframes shift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Optional subtle scale on interaction */
+.gradient-hover-text-wrapper:has(.overlay-layer[style*="--opacity: 1"]) .base-layer {
+  transition: transform 0.3s ease;
+  transform: scale(1.03);
+}
