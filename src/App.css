@@ -5,6 +5,13 @@
   text-align: center;
 }
 
+
+.gap{
+  gap: 30px;
+}
+
+
+
 .logo {
   height: 6em;
   padding: 1.5em;
