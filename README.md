@@ -3,9 +3,8 @@
 Aplikasi Simple Counter menggunakan useState 
 
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tata cara Setup Aplikasi Simple Couonter
+Pastikan sudah menginstal node.js dan juga npm nya
 
 ```js
 export default tseslint.config([
